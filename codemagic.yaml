@@ -1,0 +1,53 @@
+workflows:
+  android-build:
+    name: BharatMitra Android Build
+    max_build_duration: 30
+    instance_type: linux_x2
+    environment:
+      node: 20
+      groups: []
+    scripts:
+      - name: Install npm dependencies
+        script: npm install
+
+      - name: Add Android platform (first build only)
+        script: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+      - name: Generate app icon + splash screen from assets/
+        script: npx @capacitor/assets generate --android
+
+      - name: Sync web assets to native project
+        script: npx cap sync android
+
+      - name: Add background location permissions to AndroidManifest.xml
+        script: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          if ! grep -q "ACCESS_BACKGROUND_LOCATION" "$MANIFEST"; then
+            sed -i '/<manifest/a \
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />\
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />\
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />' "$MANIFEST"
+          fi
+
+      - name: Build debug APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+    artifacts:
+      - android/app/build/outputs/**/*.apk
+
+    publishing:
+      email:
+        recipients:
+          - kanhagirihspt1@gmail.com
+        notify:
+          success: true
+          failure: true
