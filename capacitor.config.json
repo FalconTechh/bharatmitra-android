@@ -1,0 +1,15 @@
+{
+  "appId": "com.bharatmitra.ai",
+  "appName": "BharatMitra AI",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "BackgroundGeolocation": {
+      "notificationTitle": "BharatMitra — Device Protection Active",
+      "notificationText": "Aapka phone protect ho raha hai"
+    }
+  }
+}
