@@ -37,23 +37,26 @@
   <h2>2. Location Data</h2>
   <p>Location sirf tab collect hoti hai jab:</p>
   <ul>
-    <li>Aap Family Safety Hub me "Live Location Sharing" khud ON karein — is case me location Firestore me update hoti hai jab tak app khula hai aur toggle ON hai</li>
+    <li>Aap Family Safety Hub me "Live Location Sharing" khud ON karein — is case me native Android app me location background me bhi update hoti rehti hai (jab tak toggle ON hai), taaki family aapki live location dekh sake, chahe app screen band ho</li>
     <li>Aap Hospital Helper ya My Queue me "Nearby Dhoondein" button dabate hain</li>
     <li>Aap SOS button use karte hain</li>
   </ul>
-  <p>Hum background me kabhi bhi location track nahi karte — website hone ki wajah se ye technically possible bhi nahi hai.</p>
+  <p>Background location sirf Family Safety Hub ke "Live Location Sharing" toggle ke through, aapki explicit permission ke baad hi chalti hai — aap ise kisi bhi waqt band kar sakte hain, jiske baad location update hona turant ruk jaata hai. Iske alawa app kabhi bhi location track nahi karta.</p>
 
-  <h2>3. Data Kaise Store Hoti Hai</h2>
+  <h2>3. Notifications</h2>
+  <p>Login karne par app aapke device ko push notification bhejne ke liye register karta hai (jaise queue token updates), taaki app band hone par bhi zaroori alerts mil sakein. Aap ise Settings → Notifications se band kar sakte hain.</p>
+
+  <h2>4. Data Kaise Store Hoti Hai</h2>
   <p>Sara data Google Firebase (Firestore) par store hota hai, jo industry-standard security use karta hai. Har user ka data sirf usी user ko dikhta hai — hum strict access-control rules follow karte hain.</p>
 
-  <h2>4. Sensitive Data Handling</h2>
+  <h2>5. Sensitive Data Handling</h2>
   <ul>
     <li>Hum kabhi bhi government ID numbers (Aadhaar, PAN, Passport number) collect nahi karte</li>
     <li>Medical reports sirf aapko dikhte hain, kisi aur ko nahi</li>
     <li>Family member ki location sirf tab dikhti hai jab wo khud sharing ON karein</li>
   </ul>
 
-  <h2>5. Third-Party Services</h2>
+  <h2>6. Third-Party Services</h2>
   <p>Hum in services ka use karte hain:</p>
   <ul>
     <li>Google Firebase — authentication aur database</li>
@@ -61,14 +64,14 @@
     <li>OpenStreetMap — hospital/business location data</li>
   </ul>
 
-  <h2>6. Aapke Rights</h2>
+  <h2>7. Aapke Rights</h2>
   <ul>
     <li>Kisi bhi time apna data delete kar sakte hain (respective tab me Delete option se)</li>
     <li>Account delete karne ke liye Help & Support se contact karein</li>
     <li>Live Location sharing kisi bhi time OFF kar sakte hain</li>
   </ul>
 
-  <h2>7. Contact</h2>
+  <h2>8. Contact</h2>
   <p>Kisi bhi sawal ke liye app ke andar Help & Support section use karein.</p>
 
 </body>
