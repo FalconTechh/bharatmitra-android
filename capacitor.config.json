@@ -1,0 +1,29 @@
+{
+  "appId": "com.bharatmitra.ai",
+  "appName": "BharatMitra AI",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "BackgroundGeolocation": {
+      "notificationTitle": "BharatMitra — Device Protection Active",
+      "notificationText": "Aapka phone protect ho raha hai"
+    },
+    "SplashScreen": {
+      "launchShowDuration": 2500,
+      "launchAutoHide": true,
+      "backgroundColor": "#0B1220",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com"]
+    }
+  }
+}
