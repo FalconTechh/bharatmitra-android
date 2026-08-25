@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Signing you in…</title>
+<style>
+  body{ background:#0B1220; color:#F2F5FA; font-family:Arial,sans-serif; display:flex; align-items:center;
+    justify-content:center; height:100vh; margin:0; text-align:center; }
+</style>
+</head>
+<body>
+  <div>
+    <p>Signing you in… agar app khud na khule to <a id="manualLink" style="color:#E8B23D;">yahan tap karein</a>.</p>
+  </div>
+  <script>
+    // Google's OAuth cannot redirect straight to a custom app:// scheme for a "Web" client,
+    // so it lands here (an https:// page, which Google allows) and this page immediately
+    // hands off to the app via the custom scheme, which Android is registered to catch.
+    var fragment = window.location.hash || '';
+    var target = 'com.bharatmitra.ai:/oauth2redirect' + fragment;
+    document.getElementById('manualLink').href = target;
+    window.location.href = target;
+  </script>
+</body>
+</html>
