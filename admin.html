@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BharatMitra AI — Admin Panel</title>
+<title>BharatMitra AI — Admin Panel V2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -59,7 +59,7 @@
 <body>
 <div class="wrap">
   <div id="loginGate">
-    <h1>🔐 BharatMitra Admin Panel</h1>
+    <h1>🔐 BharatMitra Admin Panel V2</h1>
     <p class="sub">Sirf authorized admin ke liye</p>
     <button onclick="handleAdminLogin()">Google se Login Karein</button>
     <div class="msg" id="loginMsg"></div>
@@ -125,7 +125,7 @@
   // unlimited push to all your users. Paste it below ONLY if this file stays private
   // (not committed to a public GitHub repo). Get it from OneSignal -> Settings -> Keys & IDs.
   const ONESIGNAL_APP_ID = "1df37ef9-c84f-4271-8568-01476b1a02ff";
-  const ONESIGNAL_REST_API_KEY = "os_v2_app_dxzx56oij5bhdbliafdwwgqc764543ttaaeerdf54lla6v5igbs5e5b5ikpzzsbrqm2dclev77daj7ujixeswk6xedt4aruiuqvs4ry";
+  const ONESIGNAL_REST_API_KEY = ""; // Keep REST API keys on a trusted backend only.
 
   async function sendOneSignalPush(opts){
     // opts: { title, message, externalId } for one user, or { title, message, toAll: true } for everyone
@@ -191,6 +191,14 @@
     if (!ready) return;
     try { await fb.signInWithPopup(auth, provider); }
     catch (e) { document.getElementById('loginMsg').className = 'msg err'; document.getElementById('loginMsg').textContent = 'Error: ' + e.message; }
+  }
+
+  async function handleAdminLogout(){
+    try {
+      if (auth) await fb.signOut(auth);
+    } catch (e) {
+      console.error('Logout failed', e);
+    }
   }
 
   function switchTab(name){
