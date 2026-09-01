@@ -1,0 +1,21 @@
+{
+  "appId": "com.bharatmitra.ai",
+  "appName": "BharatMitra AI",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 200,
+      "launchAutoHide": true,
+      "backgroundColor": "#00071C",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    }
+  }
+}
